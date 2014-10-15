@@ -1,0 +1,44 @@
+.navbar {
+  @include centreBlock();
+  border: 1px solid #ddd;
+  border-radius: 2px;
+
+  @include query(medium) {
+    max-width: 61.8%
+  }
+  @include query(large) {
+    max-width: 50%;
+  }
+  width: 100%;
+  text-align: left;
+  font-size: 1.4em;
+  overflow-x: visible;
+
+  display: block;
+
+}
+
+.navbar a, {
+  text-align: center;
+  display: inline-block;
+  @include query(tiny) {
+    display: block;
+  }
+  @include query(small) {
+    width: 100%;
+  }
+  @include query(medium) {
+    width: 25%;
+  }
+  @include query(large) {
+    width: 25%;
+  }
+  padding: 0.5em;
+  color: $base-font-color-invert;
+  text-decoration: none;
+
+}
+
+.navbar a:hover {
+  color: $base-font-hightlight;
+}

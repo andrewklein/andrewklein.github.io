@@ -1,0 +1,91 @@
+@mixin box-sizing($sizing : border-box) {
+  -webkit-box-sizing: $sizing;
+  -moz-box-sizing: $sizing;
+  box-sizing: $sizing;
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin centre() {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+@mixin centreBlock() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  @include box-sizing();
+
+}
+
+@mixin zero-position() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin query($size) {
+  @if      $size == tiny  { @media only screen and (max-width: $mq-small) { @content; } }
+  @else if $size == small  { @media only screen and (min-width: $mq-small) { @content; } }
+  @else if $size == medium { @media only screen and (min-width: $mq-medium) { @content; } }
+  @else if $size == large  { @media only screen and (min-width: $mq-large) { @content; } }
+}
+
+
+
+@mixin buildCol() {
+  $widthList : ();
+
+  @for $num from 1 through 2 {
+    @for $denominator from $num+1 through 12 {
+      @if searchList($widthList, colRatio($num, $denominator)) == false {
+        $widthList : append($widthList, colRatio($num, $denominator));
+        .col-#{$num}-#{$denominator} {
+          display: inline-block;
+          width: floor(colRatio($num, $denominator))-1#{"%"};
+          vertical-align: top;
+          padding-top: 0.5em;
+          padding-bottom: 0.5em;
+          margin: 0;
+          height: 100%;
+        }
+      }
+
+    }
+  }
+}
+
+@mixin buildSimpleCol() {
+
+  @for $num from 1 through 12 {
+    .col-#{$num} {
+      display: inline-block;
+      width: floor((100/12 * $num))-1#{"%"};
+      vertical-align: top;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      margin: 0;
+      height: 100%;
+    }
+    .offset-left-#{$num} {
+      display: inline-block;
+      margin: 0 0 0 floor((100/12 * $num))-1#{"%"};
+    }
+
+  }
+
+}

@@ -1,0 +1,45 @@
+@function colRatio($num, $denominator) {
+  @return (100 * $num/$denominator);
+}
+
+@function searchList($list, $search) {
+  @each $i in $list {
+    @if($i == $search) {
+      @warn 'a';
+      @return true;
+    }
+  }
+  @return false;
+}
+
+@mixin containerMargin($gutter) {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
+
+}
+
+
+.row {
+  display: block;
+  height: 100%;
+  @include box-sizing();
+}
+
+
+.container {
+  @include query(tiny) {
+    @include containerMargin(10%);
+  }
+  @include query(small) {
+    @include containerMargin(20%);
+  }
+  @include query(medium) {
+    @include containerMargin(35%);
+  }
+  @include query(large) {
+    @include containerMargin(45%);
+  }
+
+}

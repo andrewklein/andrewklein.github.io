@@ -1,0 +1,144 @@
+@import "Base/reset";
+@import "Base/variables";
+@import "Base/base";
+@import "Base/mixins";
+
+@import "Layout/column";
+
+@import "Modules/project";
+@import "Modules/skills";
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+@include buildSimpleCol();
+
+
+html {
+  background: #FFF;
+  width: 100%;
+  height: 100%;
+  font-family: $base-font-family;
+  font-size: 16px;
+  @include  query(tiny) {
+    font-size: 14px;
+  }
+  @include query(small) {
+    font-size: 18px;
+  }
+  @include query(large) {
+    font-size: 18px;
+  }
+
+  font-weight: 400;
+}
+
+
+
+body {
+  background: #FFF;
+  width: 100%;
+  height: 100%;
+  color: $base-font-color-invert;
+  line-height: 1.1;
+}
+
+header {
+  width: 100%;
+  font-size: 1.3rem;
+  height: auto;
+  background: $header-background;
+  color: $base-font-color;
+
+}
+
+section {
+  display: block;
+  padding-top: 2em;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-centre {
+  text-align: center;
+}
+
+.align-centre-responsive {
+  text-align: center;
+  @include query(tiny) {
+    text-align: left;
+  }
+}
+
+.align-left {
+   text-align: left;
+ }
+
+.header-title {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.header-title h1 {
+  font-size: 2.0em;
+  font-weight: 400;
+
+}
+
+.header-contact {
+
+}
+
+.header-contact a, {
+  margin: auto;
+  @include zero-position();
+  height: 1em;
+  line-height: 1em;
+  font-size: 1em;
+
+  color: $base-font-color;
+  text-decoration: none;
+  @include transition(all 0.1s ease-out);
+}
+
+.header-contact-circle {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.25em;
+  width: 1.5em;
+
+
+  border: 1px solid rgba(darken($base-font-color, 10%), 0.9);
+  @include border-radius(50%);
+}
+
+.header-contact-circle:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+
+}
+.header-contact-circle-align-inner {
+  text-align: center;
+  @include zero-position();
+}
+
+
+.header-contact a:hover, {
+  color: darken($base-font-color, 25%);
+}
+
+.content {
+  line-height: 1.25;
+  display: block;
+}
+
+.content h1 {
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+
+

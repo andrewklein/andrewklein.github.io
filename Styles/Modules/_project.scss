@@ -1,0 +1,38 @@
+.projects {
+  background: $secondary-background;
+  font-size: 1.0rem;
+}
+
+.project {
+  line-height: 1.7;
+
+}
+
+.project a {
+  color: $content-link-color;
+  text-decoration: none;
+}
+
+.project h2 span {
+  font-size: 0.7em;
+  color: lighten($base-font-color-invert, 10%);
+  display: inline-block;
+  text-align: right;
+  @include query(tiny) {
+    text-align: center;
+  }
+}
+
+.project-description {
+  display: block;
+}
+
+.project h2 span::before {
+
+}
+
+.project h2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  padding-bottom: 0.5em;
+}
